@@ -28,12 +28,10 @@ export const addQuestion = (questions)=>async(dispatch,getState)=>{
     const response = await axios.post("http://localhost:3001/questions",{...questions,TestId:userId})
 
     dispatch({type:"ADD-QUESTION",payload:response.data})
-    return(
-        response
-    )
 }
 
-export const fetchTest =(Id,name)=>async(dispatch)=>{
+export const fetchQuestion =(Id,name)=>async(dispatch)=>{
     const response=await axios.get(`http://localhost:3001/questions?TestId=${Id}&&TestName=${name}`)
-    return response
+    
+    dispatch({type:"FETCH-QUESTION",payload:response.data})
 }

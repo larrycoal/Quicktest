@@ -3,10 +3,10 @@ import {Router,Route} from 'react-router-dom'
 import history from './History'
 
 import Header from './Header'
-import LandingPage from './Pages/LandingPage'
-import TakeTest from './Pages/TakeTest'
+import LandingPage from './QuestionPages/LandingPage'
+import TakeTest from './TestPages/TakeTest'
 
-import createQuestions from './Pages/CreateQuestions'
+import createQuestions from './QuestionPages/CreateQuestions'
 import './stylesheet/main.css'
 
 const App = () => {

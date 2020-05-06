@@ -1,14 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+
 import { fetch } from '../../Actions'
 import '../stylesheet/main.css'
-
+import TestList from './TestList'
 import Test from './createTest'
 
 
 class LandingPage extends React.Component {
-    state = { switchPage: false }
+    state = { switchPage: false, active: "testlist" }
     componentDidMount() {
         this.props.fetch()
     }
@@ -16,35 +16,19 @@ class LandingPage extends React.Component {
     renderIntro() {
         return (
             <div className="intro">
-                <h2>Welcome to Quick Test</h2>
-                <p>we provide fast and reliable testing platform</p>
-                <button onClick={() => { this.setState({ switchPage: true }) }} className="ui button red" >Create Test</button>
+                <div className="intro-message">
+                    <h2>Welcome to Quick Test</h2>
+                    <p>we provide fast and reliable testing platform</p>
+                </div>
+                <div className="create-test">
+                    <button onClick={() => { this.setState({ switchPage: true }) }} className="ui button red" >Create Test</button>
+                    <button className="ui button red" >view result</button>
+                </div>
             </div>
         )
     }
-    renderList = () => {
-        console.log(this.props)
-        if (!this.props.test) {
-            return
-        }
-        return Object.values(this.props.test).map(test => {
-            let url=`/quicktest/${test.testName}/${test.userId}`
-            return (
-                <tr key={test.testName}>
-                    <th>{test.author}</th>
-                    <th>{test.testName}</th>
-                    <th>
-                        {
-                     <Link to={url}>copy link</Link>
-                    }
-                    </th>
-                    <th>
-                        {<Link to={`/new/${test.testName}`} className="ui button red">Add</Link>}
-                    </th>
-                </tr>
-            )
-        })
-    }
+
+    //{<Link to={`/new/${test.testName}`} className="ui button red">Add</Link>}
     onTestSubmit() {
         this.setState({ switchPage: false })
         this.props.fetch()
@@ -55,29 +39,32 @@ class LandingPage extends React.Component {
                 <Test onSubmit={() => { this.onTestSubmit() }} />
             )
         }
-        return (
-            <table className="ui very basic table" >
-                <thead>
-                    <tr>
-                        <th>Author</th>
-                        <th>Test</th>
-                        <th>Link</th>
-                        <th>Question</th>
-                    </tr>
-                </thead>
-                <tbody>{this.renderList()}</tbody>
-            </table>
-        )
+
+        else if (this.state.active === "testlist")
+            return (
+                <TestList test={this.props.test} />
+            )
     }
 
     render() {
         return (
             <div className="landing-page">
-                <div>
+                <div className="top-div">
                     {this.renderIntro()}
                 </div>
-                <div className="bottom-page">
-                    {this.renderPage()}
+                <div className="dashboard-page">
+                    <div className="dashboard-text">
+                        <h1>Your Test</h1>
+                    </div>
+                    <div className="dashboard-content">
+                        <div className="list-btn">
+                            <section className="active"><button >Test</button></section>
+                            <section><button>Result</button></section>
+                        </div>
+                        <div className="test-content">
+                            {this.renderPage()}
+                        </div>
+                    </div>
                 </div>
             </div>
         )

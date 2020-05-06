@@ -1,110 +1,104 @@
-@font-face {
-    font-family: myFirstFont;
-    src: url('../../Assets/Daniel-Regular.otf');
- }
-body{
-    background-image: url('../../Assets/img-Assest.jpeg');
-    background-repeat: no-repeat;
-    background-position: center;
-    font-family: myFirstFont;
-}
 html,body{
     height: 100%;
 }
-.main{
-    height: 100vh;
-}
-
+/*main-page*/
 .landing-page{
-    display: grid;
-    height: 100%;
-    margin: auto;
-    width: 40%;
-}
-.field{
-    animation: form 1s;
-    animation-iteration-count: 1;
-}
-@keyframes form{
-    0%{transform: translateY(300px);opacity: 0;}
-    100%{opacity: 1;}
+    display:grid;
+    grid-template-rows: 1fr 3fr;
+    min-height: 100vh;
 }
 
+/*Welcome div*/
+.top-div{
+    min-height: 100%;
+    background-image: url('../../Assets/green-chameleon-s9CC2SKySJM-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 .intro{
-    text-align: center;
-    padding: 20%;
-}
-.Q-form{
-    display: grid;
-    height: 100%;
-    width:100%;
-    justify-content: center;
-}
-.Q-form form{
-    width: 600px;
-    display: grid;
-    grid-template-rows: 1.5fr 2fr;
-}
-.question{
-    width: 100%;
-   padding-top: 10%;
-}
-.question textarea{
-    width: 100%;
-    height: 200px;
-}
-.options{
-    width:100%;
-    display: grid;
-    row-gap: 10px;
-    height: fit-content;
-}
-.options div{
     display:grid;
-    grid-template-columns: 1fr 7fr;
-    grid-template-rows:1fr;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+}
+.intro-message{
+position: relative;
+align-self: center;
+margin-left: 2%;
+border-left: 5px solid red;
+padding-left: 5%;
+}
+
+.create-test{
+   position: fixed;
+   right: 0;
+   top: 25%;
+}
+.dashboard-page{
+   padding: 20px;
+   display: grid;
+   grid-template-rows: 1fr 5fr;
+   width: 90%;
+    margin: 0 auto;
+}
+.dashboard-text{
+    align-self: center;
+}
+.dashboard-content{
+    display: grid;
+    grid-template-rows: 1fr 9fr;
+}
+.list-btn{
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    background-color: whitesmoke;
+    min-height: 100%;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-bottom: none;
+}
+.list-btn section{
+    padding: 10px 10px;
+    min-height: 100%;
+}
+.list-btn button{
+    border: none;
+    background-color: transparent;
+    margin: 0 auto;
+    outline: none;
+}
+ .active{
+    background-color:white;
+   
+    border-bottom: none;
+   box-shadow: 5px 0px 5px -6px #000000;
+}
+.test-content{
+    padding: 10px 0px;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-top: none;
     
 }
-.options input{
-    width: 90%;
-    height: 30px;
-}
-.field div{
+.test-list{
     display: grid;
-    grid-template-columns: 2fr 8fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin:20px 0px;
+    border-bottom: 1px solid rgba(0,0,0,0.4);
+    padding-bottom: 15px;
+    justify-content: space-between;
+    box-shadow: 0px 2px 2px -2px rgba(0,0,0,0.4);
 }
-.field{
-    display: grid;
-    row-gap: 10px;
-}
-form input{
-    border: none;
-    border-bottom: 1px dashed black;
-    background-color: transparent;
-    outline: none;
-}
-textarea{
-    border: 1px dashed black;
-    background-color: transparent;
-    outline: none;
-}
-.submit-test{
-    margin-top: 5%;
-    border: none;
-    background-color: transparent;
-}
-form select{
-    border: none;
-    border-bottom: 1px dashed black;
-    background-color: transparent;
-    outline: none;
-}
-.submit-btn{
-    display: inline !important;
-    margin-left: 70%;
-}
-.submit-btn button{
-    background-color: transparent !important;
-    color: black !important;
-    font-family: myFirstFont;
+#test-label{
+    margin-right: 10px;
+    font-size: large;
+    color: black;
+    text-shadow: none;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+.test{
+    font-size: 1.2em;
+    color: rgb(170, 177, 179);
+    font-weight: bold; 
+    justify-self: start;
+    padding-left: 10px;
+    font-family: cursive;
 }

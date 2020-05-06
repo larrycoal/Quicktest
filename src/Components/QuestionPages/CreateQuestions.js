@@ -38,16 +38,16 @@ class CreateQuestions extends React.Component {
                         <Field name="question" component="textarea" />
                     </div>
                     <div className="options">
-                        <Field name="Option-A" component={this.renderOptions} label="Options A" />
-                        <Field name="Option-B" component={this.renderOptions} label="Options B" />
-                        <Field name="Option-C" component={this.renderOptions} label="Options C" />
+                        <Field name="OptionA" component={this.renderOptions} label="Options A" />
+                        <Field name="OptionB" component={this.renderOptions} label="Options B" />
+                        <Field name="OptionC" component={this.renderOptions} label="Options C" />
                         <div>
                         <label>Answer</label>
                             <Field name="Answer" component="select" >
                                 <option></option>
-                                <option value="Option-A">Option-A</option>
-                                <option value="Option-B">Option-B</option>
-                                <option value="Option-C">Option-C</option>
+                                <option value="OptionA">Option-A</option>
+                                <option value="OptionB">Option-B</option>
+                                <option value="OptionC">Option-C</option>
                             </Field>
                         </div>
                         <div className="submit-btn">
